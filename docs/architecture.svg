@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 720" width="1120" height="720" font-family="system-ui, -apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94A3B8"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1120" height="720" fill="#FFFFFF"/>
+
+  <text x="40" y="30" font-size="17" font-weight="700" fill="#0F172A">PM Garage · 系统架构</text>
+  <text x="40" y="50" font-size="12" fill="#64748B">个人知识库 + AI 原型图库工作台 · 飞书妙搭 full_stack 应用 · NestJS + React + PostgreSQL</text>
+
+  <!-- ① 界面层 -->
+  <rect x="40" y="68" width="1040" height="100" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="60" y="92" font-size="12" font-weight="600" fill="#475569">① 界面层 · React 19 / React Router 7 / Tailwind 4 / shadcn-ui</text>
+  <rect x="60" y="102" width="188" height="46" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="154" y="130" font-size="13" fill="#334155" text-anchor="middle">工作台 Home</text>
+  <rect x="262" y="102" width="188" height="46" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="356" y="130" font-size="13" fill="#334155" text-anchor="middle">项目详情</text>
+  <rect x="464" y="102" width="188" height="46" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="558" y="130" font-size="13" fill="#334155" text-anchor="middle">原型详情</text>
+  <rect x="666" y="102" width="188" height="46" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="760" y="130" font-size="13" fill="#334155" text-anchor="middle">知识库</text>
+  <rect x="868" y="102" width="192" height="46" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="964" y="130" font-size="13" fill="#334155" text-anchor="middle">智能问答</text>
+
+  <line x1="560" y1="168" x2="560" y2="182" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="572" y="180" font-size="11" fill="#94A3B8">同页本地调用，不走网络</text>
+
+  <!-- ② 检索组装 -->
+  <rect x="40" y="186" width="1040" height="86" rx="10" fill="#FAF5FF" stroke="#E9D5FF"/>
+  <text x="60" y="212" font-size="13" font-weight="700" fill="#7E22CE">② 检索组装 · buildKnowledgeContext.ts（580 行，浏览器内运行，不发起第二次 LLM 调用）</text>
+  <text x="60" y="236" font-size="12" fill="#6B21A8">三层装入策略 —— 全量装入（小库不裁）→ 短文档整条保底 → 长文档按行切片、词级 idf 打分挑片段</text>
+  <text x="60" y="256" font-size="12" fill="#6B21A8">CJK 2-gram + ASCII 整词分词 · 覆盖率达线才装 · 12000 字符预算，给 8192 token 输出留 headroom</text>
+
+  <line x1="560" y1="272" x2="560" y2="286" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="572" y="284" font-size="11" fill="#94A3B8">组装好的资料块 + 问题 → 流式生成</text>
+
+  <!-- ③ 服务层 -->
+  <rect x="40" y="290" width="1040" height="100" rx="10" fill="#F0FDF4" stroke="#DCFCE7"/>
+  <text x="60" y="314" font-size="12" font-weight="600" fill="#15803D">③ 服务层 · NestJS 10 + Drizzle ORM 0.44 · 全局异常过滤器 + 统一响应契约</text>
+  <rect x="60" y="324" width="235" height="46" rx="8" fill="#FFFFFF" stroke="#BBF7D0"/>
+  <text x="177" y="352" font-size="12.5" fill="#166534" text-anchor="middle">projects  ·  项目</text>
+  <rect x="315" y="324" width="235" height="46" rx="8" fill="#FFFFFF" stroke="#BBF7D0"/>
+  <text x="432" y="352" font-size="12.5" fill="#166534" text-anchor="middle">prototypes  ·  原型</text>
+  <rect x="570" y="324" width="235" height="46" rx="8" fill="#FFFFFF" stroke="#BBF7D0"/>
+  <text x="687" y="352" font-size="12.5" fill="#166534" text-anchor="middle">knowledge  ·  知识条目</text>
+  <rect x="825" y="324" width="235" height="46" rx="8" fill="#FFFFFF" stroke="#BBF7D0"/>
+  <text x="942" y="352" font-size="12.5" fill="#166534" text-anchor="middle">view  ·  SPA 回退</text>
+
+  <line x1="205" y1="390" x2="205" y2="404" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="560" y1="390" x2="560" y2="404" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="915" y1="390" x2="915" y2="404" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <!-- ④ 数据 / 存储 / AI -->
+  <rect x="40" y="408" width="330" height="160" rx="10" fill="#FFFBEB" stroke="#FDE68A"/>
+  <text x="60" y="438" font-size="14" font-weight="700" fill="#B45309">PostgreSQL</text>
+  <text x="60" y="462" font-size="12" fill="#92400E">三张表 · 平台审计列 · RLS 行级隔离</text>
+  <text x="60" y="488" font-size="12" fill="#78350F">project —— 项目</text>
+  <text x="60" y="510" font-size="12" fill="#78350F">├─ prototype —— 原型 + 生成 Prompt</text>
+  <text x="60" y="532" font-size="12" fill="#78350F">└─ knowledge_item —— 知识条目</text>
+
+  <rect x="395" y="408" width="330" height="160" rx="10" fill="#F5F3FF" stroke="#DDD6FE"/>
+  <text x="415" y="438" font-size="14" font-weight="700" fill="#6D28D9">对象存储 · dataloom SDK</text>
+  <text x="415" y="462" font-size="12" fill="#5B21B6">HTML 原型 · 图片 · 知识附件</text>
+  <text x="415" y="488" font-size="12" fill="#4C1D95">上传三步：</text>
+  <text x="415" y="510" font-size="12" fill="#4C1D95">pre_upload → PUT → callback</text>
+  <text x="415" y="536" font-size="12" fill="#4C1D95">库里只存 bucketId / filePath</text>
+
+  <rect x="750" y="408" width="330" height="160" rx="10" fill="#FDF2F8" stroke="#FBCFE8"/>
+  <text x="770" y="438" font-size="14" font-weight="700" fill="#BE185D">妙搭 AI 插件</text>
+  <text x="770" y="462" font-size="12" fill="#9D174D">ai-text-generate</text>
+  <text x="770" y="480" font-size="11" fill="#9F1239">　问答生成 · 只依据资料作答</text>
+  <text x="770" y="502" font-size="12" fill="#9D174D">ai-doc-parser</text>
+  <text x="770" y="520" font-size="11" fill="#9F1239">　PDF / Word / PPT / Excel → markdown</text>
+  <text x="770" y="542" font-size="12" fill="#9D174D">ai-image-understanding</text>
+  <text x="770" y="560" font-size="11" fill="#9F1239">　白板 / 截图 → 可检索文本</text>
+
+  <line x1="560" y1="568" x2="560" y2="592" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <!-- 运行底座 -->
+  <rect x="40" y="596" width="1040" height="66" rx="10" fill="#F1F5F9" stroke="#CBD5E1"/>
+  <text x="60" y="620" font-size="12" font-weight="600" fill="#475569">飞书妙搭运行态（full_stack）</text>
+  <text x="60" y="642" font-size="12" fill="#64748B">登录态注入 SUDA_WEBUSER · 托管 PostgreSQL · 文件存储 · 模型能力 　—— 　脱离该平台无法完整运行</text>
+
+  <text x="40" y="690" font-size="11.5" fill="#94A3B8">知识闭环：知识附件 → 解析 / OCR 提取文字 → 写入 extracted_text → 并入检索语料 → 命中片段随问题一起送模型，回答带 [资料N] 来源编号</text>
+</svg>
